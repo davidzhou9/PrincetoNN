@@ -9,7 +9,7 @@
           "type":"RES_COLLEGE"
         },
         {
-          "name":"mealTime"
+          "name":"mealTime",
           "type":"MEAL"
         }
       ]
