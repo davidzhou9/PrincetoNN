@@ -49,7 +49,7 @@ module.exports = {
         var options = {
             host: 'galstyan.net',
             port: 80,
-            path: 'haha.txt',// + encodeURI(myState),
+            path: '/haha.txt',// + encodeURI(myState),
             method: 'GET'
         };
         console.log("options");
