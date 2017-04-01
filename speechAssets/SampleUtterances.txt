@@ -5,3 +5,14 @@ DiningRequestIntent {resCollege} {mealTime}
 DiningRequestIntent {mealTime} {resCollege}
 DiningRequestIntent what is in {resCollege} for {mealTime}
 DiningRequestIntent what is for {mealTime} in {resCollege}
+
+USGEventsIntent what is going on today
+USGEventsIntent are there any events going on
+USGEventsIntent i am bored
+USGEventsIntent what is happening
+USGEventsIntent tell me about events today
+USGEventsIntent events
+USGEventsIntent activities
+USGEventsIntent usg events
+
+
