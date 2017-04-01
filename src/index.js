@@ -50,7 +50,7 @@ var handlers = {
         var say = "";
 
         if (myName == null) { // no slot
-            say = 'You can tell me your name, for example, you can say my name is Natasha.';
+            say = 'You can tell me your name, for example, you can say my name is Alexa.';
         } else {
             // create and store session attributes
             this.attributes['myName'] = myName;
@@ -61,7 +61,7 @@ var handlers = {
     },
 
     'AMAZON.HelpIntent': function () {
-        this.emit(':ask', 'Say the name of a U.S. State.', 'try again');
+        this.emit(':ask', 'Ask me something about Princeton', 'try again');
     },
 
     'AMAZON.StopIntent': function () {
