@@ -2,7 +2,7 @@
 
 rm index.zip
 cd src
-zip -X -r ../index.zip *
+zip -X -r ../index.zip * > output.txt
 cd ..
-aws lambda update-function-code --function-name SPop  --zip-file fileb://index.zip
+aws lambda update-function-code --function-name PrincetoNN  --zip-file fileb://index.zip
 

@@ -19,8 +19,9 @@ var handlers = {
         this.emit(':ask', say, 'try again');
     },
 
-    'StateRequestIntent': function() {
-        var myState = this.event.request.intent.slots.usstate.value;
+    'DiningRequestIntent': function() {
+        var college = this.event.request.intent.slots.resCollege.value;
+        var mealTime = this.event.request.intent.slots.mealTime.value;
         var say = '';
 
         // create and store session attributes
@@ -28,16 +29,13 @@ var handlers = {
             this.attributes['myList'] = [];  // empty array
         }
 
-        this.attributes['myList'].push(myState);  // add array element
+        this.attributes['myList'].push(college);  // add array element
 
         var that = this;
 
+        CallAPIs.getDiningFromAPI_GET(college, mealTime, pop => {
 
-         // CallAPIs.getPopMock(myState, pop => {
-        // CallAPIs.getPopFromArray(myState, pop => {
-        CallAPIs.getPopFromAPI_GET(myState, pop => {
-
-            say = 'The population of ' + myState + ' is ' + pop;
+            say = [mealTime, 'at', college, 'is', pop].join(' ');
 
             console.log("say = " + say);
 
@@ -58,20 +56,6 @@ var handlers = {
             this.attributes['myName'] = myName;
             say = 'Hi ' + myName + '!';
         }
-
-        this.emit(':ask', say, 'try again');
-    },
-    'RecapIntent': function() {
-
-        // create and store session attributes
-        if (!this.attributes['myList']) {
-            this.attributes['myList'] = [];  // empty array
-        }
-
-        var stateList  = this.attributes['myList'].toString();  // add array element
-        var stateCount =  this.attributes['myList'].length;
-
-        var say = 'Your list has the following ' + stateCount + ' states. ' + stateList;
 
         this.emit(':ask', say, 'try again');
     },
