@@ -1,5 +1,0 @@
-
-StateRequestIntent {usstate}
-StateRequestIntent describe {usstate}
-StateRequestIntent how about {usstate}
-StateRequestIntent go to {usstate}
