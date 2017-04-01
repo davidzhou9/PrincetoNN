@@ -24,5 +24,3 @@ BlackBoardIntent what is my most recent message on blackboard
 BlackBoardIntent tell me my most recent message on blackboard
 BlackBoardIntent blackboard
 BlackBoardIntent blackboard message
-
-
