@@ -17,6 +17,15 @@
       "intent": "USGEventsIntent"
     },
     {
+      "intent": "BlackBoardIntent":
+      "slots":[
+        {
+          "name":"course",
+          "type":"COURSE"
+        }
+      ]
+    }
+    {
       "intent": "MyNameIsIntent",
       "slots":[
         {
