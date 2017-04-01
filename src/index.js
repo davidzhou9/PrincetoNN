@@ -33,7 +33,7 @@ var handlers = {
 
         var that = this;
 
-        CallAPIs.getDiningFromAPI_GET(resCollege, mealTime, pop => {
+        CallAPIs.getDiningFromAPI_GET(college, mealTime, pop => {
 
             say = [mealTime, 'at', college, 'is', pop].join(' ');
 
