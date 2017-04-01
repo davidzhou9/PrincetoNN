@@ -8,9 +8,9 @@ module.exports = {
         var rank = 0;
 
         var options = {
-            host: 'cp6gckjt97.execute-api.us-east-1.amazonaws.com',
-            port: 443,
-            path: '/prod/stateresource?usstate=' + encodeURI('texas'),
+            host: 'galstyan.net',
+            port: 80,
+            path: '/haha.txt',// + encodeURI('texas'),
             method: 'GET'
         };
         console.log("options");
@@ -28,7 +28,7 @@ module.exports = {
 
                 console.log(JSON.stringify(returnData));
 
-                answer = JSON.parse(returnData).population;
+                answer = returnData;
 
                 callback(answer);
 
