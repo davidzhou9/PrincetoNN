@@ -33,7 +33,7 @@ var handlers = {
 
         var that = this;
 
-        CallAPIs.getDiningFromAPI_GET(college, mealTime, pop => {
+        /*CallAPIs.getDiningFromAPI_GET(college, mealTime, pop => {
 
             say = [mealTime, 'at', college, 'is', pop].join(' ');
 
@@ -41,7 +41,8 @@ var handlers = {
 
             this.emit(':ask', say, 'try again');
 
-        });
+        });*/
+        this.emit(':ask', 'pineapple', 'try again');
 
     },
     'MyNameIsIntent': function() {
