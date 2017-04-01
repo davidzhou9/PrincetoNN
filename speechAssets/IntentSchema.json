@@ -2,11 +2,17 @@
 {
   "intents": [
     {
-      "intent": "StateRequestIntent",
+      "intent": "DiningRequestIntent",
       "slots":[
         {
-          "name":"usstate",
-          "type":"AMAZON.US_STATE"
+          "name":"resCollege",
+          "type":"RES_COLLEGE"
+        }
+      ],
+      [
+        {
+          "name":"mealTime"
+          "type":"MEAL"
         }
       ]
     },
@@ -18,9 +24,6 @@
           "type":"AMAZON.US_FIRST_NAME"
         }
       ]
-    },
-    {
-      "intent": "RecapIntent"
     },
     {
       "intent": "AMAZON.StartOverIntent"
