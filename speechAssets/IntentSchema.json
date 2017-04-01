@@ -17,8 +17,8 @@
       "intent": "USGEventsIntent"
     },
     {
-      "intent": "BlackBoardIntent":
-    }
+      "intent": "BlackBoardIntent"
+    },
     {
       "intent": "MyNameIsIntent",
       "slots":[
