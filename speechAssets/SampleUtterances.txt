@@ -15,4 +15,14 @@ USGEventsIntent events
 USGEventsIntent activities
 USGEventsIntent usg events
 
+BlackBoardIntent what is my most recent announcement on blackboard
+BlackBoardIntent tell me my most recent announcement on blackboard
+BlackBoardIntent blackboard announcement
+BlackBoardIntent recent blackboard
+BlackBoardIntent recent announcement from blackboard
+BlackBoardIntent what is my most recent message on blackboard
+BlackBoardIntent tell me my most recent message on blackboard
+BlackBoardIntent blackboard
+BlackBoardIntent blackboard message
+
 
