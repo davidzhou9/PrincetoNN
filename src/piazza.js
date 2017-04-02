@@ -15,8 +15,8 @@ piazza.piazza_whatCourses = (semester, callback) => {
 		 var result = user.classes
 		 .filter((singleClass) => singleClass.term == (semester == 'last'? 'Fall 2016' : 'Spring 2017'))
 		 .map((singleClass)=>singleClass.name)
-		 
-		 console.log(JSON.stringify(user, null, 2))
+		 user.classes[0].search("jvm").then((s)=>{console.log(JSON.stringify(s, null, 2))})
+		 //console.log(JSON.stringify(user, null, 2))
 		 callback(result);
 
 		 
