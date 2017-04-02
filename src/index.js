@@ -54,6 +54,37 @@ var handlers = {
             this.emit(':ask', say, 'try again');
         });
     },
+
+    'CourseInstructorIntent': function() {
+        var courseName = this.event.request.intent.slots.courseName.value;
+        var courseNum = this.event.request.intent.slots.courseNumber.value;
+        var say = '';
+
+        CallAPIs.courseInstructor_whichCourseInstructor(courseName, courseNum, pop => {
+
+            say = pop;
+
+        console.log("say = " + say);
+
+        this.emit(':ask', say, 'try again');
+        }
+    },
+
+    'CourseLectureIntent': function() {
+        var courseName = this.event.request.intent.slots.courseName.value;
+        var courseNum = this.event.request.intent.slots.courseNumber.value;
+        var say = '';
+
+        CallAPIs.courseLecture_whichCourseLecture(courseName, courseNum, pop => {
+
+            say = pop;
+
+        console.log("say = " + say);
+
+        this.emit(':ask', say, 'try again');
+        }
+    },
+
     'MyNameIsIntent': function() {
 
         var myName = this.event.request.intent.slots.myName.value;
