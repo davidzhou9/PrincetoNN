@@ -15,12 +15,16 @@ EventsIntent events
 EventsIntent activities
 EventsIntent usg events
 
-BlackBoardIntent what is my most recent announcement on blackboard
-BlackBoardIntent tell me my most recent announcement on blackboard
-BlackBoardIntent blackboard announcement
-BlackBoardIntent recent blackboard
-BlackBoardIntent recent announcement from blackboard
-BlackBoardIntent what is my most recent message on blackboard
-BlackBoardIntent tell me my most recent message on blackboard
-BlackBoardIntent blackboard
-BlackBoardIntent blackboard message
+CourseInstructorIntent which professor teaches {courseName} {courseNumber}
+CourseInstructorIntent who teaches {courseName} {courseNumber}
+CourseInstructorIntent who is the professor for {courseName} {courseNumber}
+CourseInstructorIntent who {courseName} {courseNumber}
+CourseInstructorIntent teaches {courseName} {courseNumber}
+
+CourseLectureIntent what time is {courseName} {courseNumber}
+CourseLectureIntent when is {courseName} {courseNumber}
+CourseLectureIntent what day is {courseName} {courseNumber}
+CourseLectureIntent at what time is {courseName} {courseNumber}
+CourseLectureIntent time {courseName} {courseNumber}
+CourseLectureIntent whem {courseName} {courseNumber}
+CourseLectureIntent day {courseName} {courseNumber}
