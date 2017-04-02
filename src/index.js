@@ -19,20 +19,15 @@ var handlers = {
         this.emit(':ask', say, 'try again');
     },
 
-    'LocationRequestIntent': function() {
-        var city = this.event.request.intent.slots.city.value;
-        var country = this.event.request.intent.slots.country.value;
+    'GiveRandomPrincetonianIntent': function() {
 
         // create and store session attributes
         if (!this.attributes['myList']) {
             this.attributes['myList'] = [];  // empty array
         }
-
-        var query = city;
-        if (!city || city == '') query = country;
         
-        CallAPIs.tigerbook_whereFrom(query, pop => {
-            this.emit(':ask', pop, 'try again');
+        CallAPIs.tigerbook_random(pop => {
+            this.emit(':ask', 'Here is a random Princetonian' + pop, 'try again');
         })
     },
 

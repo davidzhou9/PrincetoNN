@@ -1,17 +1,7 @@
 {
   "intents": [
     {
-      "intent": "CityRequestIntent",
-      "slots":[
-        {
-          "name":"city",
-          "type":"AMAZON.US_CITY"
-        },
-        {
-          "name":"country",
-          "type":"AMAZON.Country"
-        }
-    ]
+      "intent": "GiveRandomPrincetonianRequestIntent",
     }
     {
       "intent": "DiningRequestIntent",
