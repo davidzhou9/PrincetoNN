@@ -70,3 +70,6 @@ exports = {
     }
 
 };
+
+module.exports = exports;
+exports.getDiningFromAPI_GET("whitman", "dinner", pop => {console.log(pop);});
