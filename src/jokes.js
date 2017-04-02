@@ -7,10 +7,10 @@ jokes.jokes_whatJokes = (callback) => {
         "want to segdewick and chill?",
 
         "Me: Come over, I'm in serious danger. " +
-            "P Safe: I can't, I'm busy busting pregames. " +
+            "P Safe: I can't, I'm busy busting pre games. " +
         "Me: There's a poster on my door preventing it from being " +
         "readily identifable as a means of egress " +
-        "PSafe: I'll be right there",
+        "P Safe: I'll be right there",
 
         "How many Princeton students does it take to change a light bulb? " +
         "Two. One to mix the martinis and one to call the electrician.",
