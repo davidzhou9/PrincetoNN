@@ -90,7 +90,7 @@ var handlers = {
     'MajorIntent': function() {
         if (!this.attributes['randomStudent']) return this.emit(':ask', 'Please ask for a random Princeton student first.', 'try again');
         CallAPIs.tigerbook_major(this.attributes['randomStudent'], pop => {
-            if (pop.toLowerCase() == 'undeclared') return this.emit(':ask', 'this student still did not declare his major', 'try again');
+            if (pop.toLowerCase() == 'undeclared') return this.emit(':ask', 'this student still did not declare their major', 'try again');
             this.emit(':ask', 'This student is majoring in ' + pop, 'try again');
         })
     },
