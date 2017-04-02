@@ -15,8 +15,8 @@ jokes.jokes_whatJokes = (callback) => {
         "How many Princeton students does it take to change a light bulb? " +
         "Two. One to mix the martinis and one to call the electrician.",
 
-        "How many Harvard students does it take to change a lightbulb? One, " +
-            "he holds the bulb and the world revolves around him",
+        "How many Harvard students does it take to change a lightbulb? " +
+        "One, he holds the bulb and the world revolves around him",
 
         "How many Penn students does it take to change a lightbulb? " +
             "Only one, but he gets six credits for it"

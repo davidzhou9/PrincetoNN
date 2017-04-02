@@ -61,12 +61,9 @@ var handlers = {
         var say = '';
 
         CallAPIs.courseInstructor_whatCourseInstructor(courseName, courseNum, pop => {
-
             say = pop;
-
-        console.log("say = " + say);
-
-        this.emit(':ask', say, 'try again');
+            console.log("say = " + say);
+            this.emit(':ask', say, 'try again');
         });
     },
 
@@ -76,17 +73,18 @@ var handlers = {
         var say = '';
 
         CallAPIs.courseLecture_whatCourseLecture(courseName, courseNum, pop => {
-
             say = pop;
-
-        console.log("say = " + say);
-
-        this.emit(':ask', say, 'try again');
+            console.log("say = " + say);
+            this.emit(':ask', say, 'try again');
         });
     },
 
     'JokesIntent': function() {
-
+        CallAPIs.jokes_whatJokes(pop => {
+           say = pop;
+           console.log("say = " + say);
+           this.emit(':ask', say, 'try again');
+        });
     },
 
     'MyNameIsIntent': function() {
