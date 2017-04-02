@@ -22,4 +22,3 @@ request({
 }
 
 module.exports = tigerbook;
-tigerbook.tigerbook_random(pop => {console.log(pop);});

@@ -27,7 +27,7 @@ var handlers = {
         }
         
         CallAPIs.tigerbook_random(pop => {
-            this.emit(':ask', 'Here is a random Princetonian' + pop, 'try again');
+            this.emit(':ask', 'Here is a random Princetonian ' + pop, 'try again');
         })
     },
 

@@ -3,7 +3,7 @@ var tigerbook = require('./tigerbook.js');
 
 // Functions
 exports = {
- dining_whatFood:dining.dining_whatFood
+ dining_whatFood:dining.dining_whatFood,
  tigerbook_random:tigerbook.tigerbook_random
 };
 

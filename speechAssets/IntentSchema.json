@@ -1,8 +1,8 @@
 {
   "intents": [
     {
-      "intent": "GiveRandomPrincetonianRequestIntent",
-    }
+      "intent": "GiveRandomPrincetonianIntent"
+    },
     {
       "intent": "DiningRequestIntent",
       "slots":[
