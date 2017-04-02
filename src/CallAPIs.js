@@ -81,13 +81,7 @@ getEventFromAPI_GET: (callback) => {
                     }
                 });
 
-                var arrayOfEvents = todayEvents.filter(function(val) {return val;});
-                var answer;
-                if (arrayOfEvents.length > 3 || arrayOfEvents.length == 0)
-                    answer = arrayOfEvents.length;
-                else
-                    answer = arrayOfEvents.join(', ');
-
+                var answer = todayEvents.filter(function(val) {return val;});
                 callback(answer);
             });
         });

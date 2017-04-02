@@ -49,10 +49,12 @@ var handlers = {
         var that = this;
 
         CallAPIs.getEventFromAPI_GET(pop => {
-
-            var say = pop;
-
-        console.log("say = " + say);
+            var arrayOfEvents = pop;
+            if (arrayOfEvents.length > 3 || arrayOfEvents.length == 0)
+                say = arrayOfEvents.length;
+            else
+                say = arrayOfEvents.join(', ');
+            console.log("say = " + say);
 
         this.emit(':ask', say, 'try again');
         });
