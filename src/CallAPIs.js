@@ -32,7 +32,7 @@ exports = {
         var options = {
             host: 'campusdining.princeton.edu',
             port: 443,
-            path: '/FPMobile/shortmenu.asp?sName=Princeton+University+Dining+Services&locationNum=' + colleges[resCollege] + '&naFlag=1&WeeksMenus=This+Week%27s+Menus&dtdate=' + encodeURI(date.getMonth() + 1) + '%2F' + encodeURI(date.getDate()) + '%2F' + encodeURI(date.getFullYear()) + '&mealName=' + encodeURI(mealTime),
+            path: '/FPMobile/shortmenu.asp?sName=Princeton+University+Dining+Services&locationNum=' + colleges[resCollege.toLowerCase()] + '&naFlag=1&WeeksMenus=This+Week%27s+Menus&dtdate=' + encodeURI(date.getMonth() + 1) + '%2F' + encodeURI(date.getDate()) + '%2F' + encodeURI(date.getFullYear()) + '&mealName=' + encodeURI(mealTime),
             method: 'GET'
         };
 
@@ -72,4 +72,3 @@ exports = {
 };
 
 module.exports = exports;
-exports.getDiningFromAPI_GET("whitman", "dinner", pop => {console.log(pop);});

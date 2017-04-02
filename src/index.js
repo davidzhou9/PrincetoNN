@@ -29,8 +29,6 @@ var handlers = {
             this.attributes['myList'] = [];  // empty array
         }
 
-        this.attributes['myList'].push(college);  // add array element
-
         var that = this;
 
         CallAPIs.getDiningFromAPI_GET(college, mealTime, pop => {
@@ -50,7 +48,7 @@ var handlers = {
         var say = "";
 
         if (myName == null) { // no slot
-            say = 'You can tell me your name, for example, you can say my name is Natasha.';
+            say = 'You can tell me your name, for example, you can say my name is Jad.';
         } else {
             // create and store session attributes
             this.attributes['myName'] = myName;
@@ -61,7 +59,7 @@ var handlers = {
     },
 
     'AMAZON.HelpIntent': function () {
-        this.emit(':ask', 'Say the name of a U.S. State.', 'try again');
+        this.emit(':ask', 'Ask me anything about Princeton University', 'try again');
     },
 
     'AMAZON.StopIntent': function () {
