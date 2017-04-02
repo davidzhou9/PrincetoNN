@@ -4,7 +4,7 @@ var jokes = {};
 jokes.jokes_whatJokes = (callback) => {
 
     var jokesArray = [
-        "want to segdewick and chill?",
+        "want to sedgewick and chill?",
 
         "Me: Come over, I'm in serious danger. " +
             "P Safe: I can't, I'm busy busting pre games. " +
@@ -19,11 +19,20 @@ jokes.jokes_whatJokes = (callback) => {
         "One, he holds the bulb and the world revolves around him",
 
         "How many Penn students does it take to change a lightbulb? " +
-            "Only one, but he gets six credits for it"
+            "Only one, but he gets six credits for it",
+
+        "How many Stanford freshmen does it take to change a lightbulb? " +
+        "None. That is a sophomore course.",
+
+        "How many Yalies does it take to change a light bulb? " +
+            "None, New Haven looks better in the dark.",
+
+        "All Dartmouth students are bilingual. " +
+            "They speak English and profanity."
     ]
 
     callback(jokesArray[Math.floor(Math.random() * jokesArray.length)]);
 }
 
-//************** DINING INTENTS END ********************************
+//************** JOKES INTENTS END ********************************
 module.exports = jokes;
