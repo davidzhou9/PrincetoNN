@@ -1,6 +1,7 @@
 // Import libraries
 var https = require('https');
 var cheerio = require('cheerio');
+var _ = require('underscore');
 
 // Keep link to each dining hall
 var colleges = {
@@ -24,13 +25,16 @@ var dining = {};
         var date = new Date();
 
         // Convert brunch to lunch
-        if (mealTime == 'brunch') mealTime = 'lunch';
+        if (mealTime == 'brunch' || (mealTime == 'breakfast' && (date.getDay() == 6 || date.getDay() == 0))) mealTime = 'lunch';
+
+        // URL Path
+        var path = '/FPMobile/shortmenu.asp?sName=Princeton+University+Dining+Services&locationNum=' + colleges[resCollege.toLowerCase()] + '&naFlag=1&WeeksMenus=This+Week%27s+Menus&dtdate=' + encodeURI(date.getMonth() + 1) + '%2F' + encodeURI(date.getDate()) + '%2F' + encodeURI(date.getFullYear()) + '&mealName=' + encodeURI(mealTime) + '&lngcurselmeal=' + (mealTime == 'breakfast' || (mealTime == 'lunch' && (date.getDay() == 6 || date.getDay() == 0)) ? '1' : ((mealTime == 'lunch' || (mealTime == 'dinner' && (date.getDay() == 6 || date.getDay() == 0))) ? '2' : '3'));
 
         // Connect to princeton dining hall directory
         var options = {
             host: 'campusdining.princeton.edu',
             port: 443,
-            path: '/FPMobile/shortmenu.asp?sName=Princeton+University+Dining+Services&locationNum=' + colleges[resCollege.toLowerCase()] + '&naFlag=1&WeeksMenus=This+Week%27s+Menus&dtdate=' + encodeURI(date.getMonth() + 1) + '%2F' + encodeURI(date.getDate()) + '%2F' + encodeURI(date.getFullYear()) + '&mealName=' + encodeURI(mealTime),
+            path: path,
             method: 'GET'
         };
 
@@ -53,11 +57,10 @@ var dining = {};
                 result('.shortmenurecipes').each(function(i, elem) {
                     menu[i] = result(this).text();
                 });
-                // Convert menu to long string that Alexa can speak
-                var answer = menu.join(', ');
-
+                menu = _.sample(menu, 5);
+                var speak = menu.join(', ');
                 // Return answer
-                callback(answer);
+                callback(speak);
 
             });
 

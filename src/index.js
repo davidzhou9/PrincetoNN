@@ -29,7 +29,7 @@ var handlers = {
     'PiazzaCourseInstructorsIntent':function() {
         if (!this.attributes['semester']||!this.attributes['courses'] || Object.keys(this.attributes['courses']).length == 0)
         {
-            this.emit(":ask","please ask for your course list first", "try again");
+            return this.emit(":ask","please ask for your course list first", "try again");
 
         }
         var whichCourse = this.event.request.intent.slots.whichCourse.value;
@@ -49,12 +49,85 @@ var handlers = {
     'GiveRandomPrincetonianIntent': function() {
 
         // create and store session attributes
-        if (!this.attributes['myList']) {
-            this.attributes['myList'] = [];  // empty array
+        if (!this.attributes['randomStudent']) {
+            this.attributes['randomStudent'] = [];
         }
         
         CallAPIs.tigerbook_random(pop => {
-            this.emit(':ask', 'Here is a random Princetonian ' + pop, 'try again');
+            this.attributes['randomStudent'] = pop[1];
+            this.emit(':ask', 'Here is a random Princetonian, ' + pop[0], 'try again');
+        })
+    },
+
+    'ResCollegeIntent': function() {
+        if (!this.attributes['randomStudent']) return this.emit(':ask', 'Please ask for a random Princeton student first.', 'try again');
+        CallAPIs.tigerbook_college(this.attributes['randomStudent'], pop => {
+            this.emit(':ask', 'This student lives in ' + pop, 'try again');
+        })
+    },
+
+    'RoomIntent': function() {
+        if (!this.attributes['randomStudent']) return this.emit(':ask', 'Please ask for a random Princeton student first.', 'try again');
+        CallAPIs.tigerbook_room(this.attributes['randomStudent'], pop => {
+            this.emit(':ask', 'This student lives in room ' + pop, 'try again');
+        })
+    },
+
+    'HallIntent': function() {
+        if (!this.attributes['randomStudent']) return this.emit(':ask', 'Please ask for a random Princeton student first.', 'try again');
+        CallAPIs.tigerbook_hall(this.attributes['randomStudent'], pop => {
+            this.emit(':ask', 'This student lives in ' + pop, 'try again');
+        })
+    },
+
+    'ProgramIntent': function() {
+        if (!this.attributes['randomStudent']) return this.emit(':ask', 'Please ask for a random Princeton student first.', 'try again');
+        CallAPIs.tigerbook_program(this.attributes['randomStudent'], pop => {
+            this.emit(':ask', 'This student is earning a ' + pop + ' degree', 'try again');
+        })
+    },
+
+    'MajorIntent': function() {
+        if (!this.attributes['randomStudent']) return this.emit(':ask', 'Please ask for a random Princeton student first.', 'try again');
+        CallAPIs.tigerbook_major(this.attributes['randomStudent'], pop => {
+            if (pop.toLowerCase() == 'undeclared') return this.emit(':ask', 'this student still did not declare his major', 'try again');
+            this.emit(':ask', 'This student is majoring in ' + pop, 'try again');
+        })
+    },
+
+    'StudentLocationIntent': function() {
+        if (!this.attributes['randomStudent']) return this.emit(':ask', 'Please ask for a random Princeton student first.', 'try again');
+        CallAPIs.tigerbook_locate(this.attributes['randomStudent'], pop => {
+            this.emit(':ask', 'This student is from ' + pop, 'try again');
+        })
+    },
+
+    'StudentYearIntent': function() {
+        if (!this.attributes['randomStudent']) return this.emit(':ask', 'Please ask for a random Princeton student first.', 'try again');
+        CallAPIs.tigerbook_year(this.attributes['randomStudent'], pop => {
+            this.emit(':ask', 'This student is in the class of ' + pop, 'try again');
+        })
+    },
+
+    'MailboxIntent': function() {
+        if (!this.attributes['randomStudent']) return this.emit(':ask', 'Please ask for a random Princeton student first.', 'try again');
+        CallAPIs.tigerbook_mailbox(this.attributes['randomStudent'], pop => {
+            this.emit(':ask', "This student's mailbox is " + pop, 'try again');
+        })
+    },
+
+    'EmailIntent': function() {
+        if (!this.attributes['randomStudent']) return this.emit(':ask', 'Please ask for a random Princeton student first.', 'try again');
+        CallAPIs.tigerbook_email(this.attributes['randomStudent'], pop => {
+            this.emit(':ask', "This student's e-mail " + pop, 'try again');
+        })
+    },
+
+    'RoommateIntent': function() {
+        if (!this.attributes['randomStudent']) return this.emit(':ask', 'Please ask for a random Princeton student first.', 'try again');
+        CallAPIs.tigerbook_roommates(this.attributes['randomStudent'], pop => {
+            if (pop.length == 1) return this.emit(':ask', "This student's roommate is " + pop[0], 'try again');
+            this.emit(':ask', "This student's roommates are " + pop.join(', '), 'try again');
         })
     },
 
@@ -63,13 +136,8 @@ var handlers = {
         var mealTime = this.event.request.intent.slots.mealTime.value;
         var say = '';
 
-        // create and store session attributes
-        if (!this.attributes['myList']) {
-            this.attributes['myList'] = [];  // empty array
-        }
-
         CallAPIs.dining_whatFood(college, mealTime, pop => {
-            say = [mealTime, 'at', college, 'is', pop].join(' ');
+            say = [mealTime, 'at', college, 'includes', pop].join(' ');
             this.emit(':ask', say, 'try again');
         });
 
