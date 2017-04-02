@@ -119,13 +119,14 @@ var handlers = {
     'EmailIntent': function() {
         if (!this.attributes['randomStudent']) return this.emit(':ask', 'Please ask for a random Princeton student first.', 'try again');
         CallAPIs.tigerbook_email(this.attributes['randomStudent'], pop => {
-            this.emit(':ask', "This student's e-mail " + pop, 'try again');
+            this.emit(':ask', "This student's e-mail is " + pop, 'try again');
         })
     },
 
     'RoommateIntent': function() {
         if (!this.attributes['randomStudent']) return this.emit(':ask', 'Please ask for a random Princeton student first.', 'try again');
         CallAPIs.tigerbook_roommates(this.attributes['randomStudent'], pop => {
+            if (!pop || pop.length == 0) return this.emit(':ask', 'This student has no roommates', 'try again');
             if (pop.length == 1) return this.emit(':ask', "This student's roommate is " + pop[0], 'try again');
             this.emit(':ask', "This student's roommates are " + pop.join(', '), 'try again');
         })

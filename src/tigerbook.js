@@ -11,7 +11,7 @@ tigerbook.tigerbook_random = (callback) => {
 var token = wsse({ username: 'jbechara+testApp', password: '532d5717a37f0e4abe8aa5e36f7a98a5' });
 console.log(token + '');
 if (bible) {
-  var names = JSON.parse(body).map((person)=>[person.full_name, person.net_id]);
+  var names = bible.map((person)=>[person.full_name, person.net_id]);
   var rand = Math.floor(Math.random() * names.length);
   callback([names[rand][0], names[rand][1]]);
 } else {

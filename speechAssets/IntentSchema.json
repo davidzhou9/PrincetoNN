@@ -88,6 +88,20 @@
       ]
     },
     {
+      "intent": "PiazzaCourseListIntent",
+      "slots":[{
+        "name":"semester",
+        "type":"SEMESTER"
+      }]
+    },
+    {
+      "intent": "PiazzaCourseInstructorsIntent",
+      "slots":[{
+        "name":"whichCourse",
+        "type":"WHICH_COURSE"
+      }]
+    },
+    {
       "intent": "AMAZON.StartOverIntent"
     },
     {

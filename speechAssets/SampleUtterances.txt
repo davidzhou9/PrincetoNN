@@ -93,3 +93,25 @@ JokesIntent tell me a joke
 JokesIntent i'm sad
 JokesIntent say something funny
 JokesIntent jokes
+
+PiazzaCourseInstructorsIntent Who are the instructors for the {whichCourse} one
+PiazzaCourseInstructorsIntent instructors for the {whichCourse} one
+PiazzaCourseInstructorsIntent who teaches the {whichCourse} one
+PiazzaCourseInstructorsIntent instructors for the {whichCourse}
+PiazzaCourseInstructorsIntent who teaches the {whichCourse}
+PiazzaCourseListIntent what courses
+PiazzaCourseListIntent what courses am I taking on piazza
+PiazzaCourseListIntent piazza courses
+PiazzaCourseListIntent what courses am I taking
+PiazzaCourseListIntent what courses {semester}
+PiazzaCourseListIntent what courses am I taking on piazza {semester} semester
+PiazzaCourseListIntent what courses am I taking on piazza {semester} term
+PiazzaCourseListIntent what courses am I taking {semester} semester
+PiazzaCourseListIntent what courses am I taking {semester} term
+PiazzaCourseListIntent what courses did I take on piazza {semester} semester
+PiazzaCourseListIntent what courses did I take on piazza {semester} term
+PiazzaCourseListIntent what courses did I take {semester} semester
+PiazzaCourseListIntent what courses did I take {semester} term
+PiazzaCourseListIntent course list
+PiazzaCourseListIntent course list {semester}
+PiazzaCourseListIntent course list {semester} semester
