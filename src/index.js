@@ -54,7 +54,7 @@ var handlers = {
         }
         
         CallAPIs.tigerbook_random(pop => {
-            this.emit(':ask', 'Here is a random Princetonian ' + pop, 'try again');
+            this.emit(':ask', 'Here is a random Princetonian, ' + pop, 'try again');
         })
     },
 
@@ -69,7 +69,7 @@ var handlers = {
         }
 
         CallAPIs.dining_whatFood(college, mealTime, pop => {
-            say = [mealTime, 'at', college, 'is', pop].join(' ');
+            say = [mealTime, 'at', college, 'includes', pop].join(' ');
             this.emit(':ask', say, 'try again');
         });
 
