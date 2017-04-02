@@ -6,6 +6,61 @@ GiveRandomPrincetonianIntent name someone random in princeton
 GiveRandomPrincetonianIntent name a random princeton student
 GiveRandomPrincetonianIntent name a random princetonian
 
+ResCollegeIntent what residential college is he in
+ResCollegeIntent what residential college is she in
+ResCollegeIntent what residential college is this student in
+ResCollegeIntent what college is he in
+ResCollegeIntent what college is she in
+ResCollegeIntent what college is this student in
+ResCollegeIntent what dorm is he in
+ResCollegeIntent what dorm is she in
+ResCollegeIntent what dorm is this student in
+
+RoomIntent what room is he in
+RoomIntent what room is she in
+RoomIntent what room is the student in
+
+HallIntent what hall is he in
+HallIntent what hall is she in
+HallIntent what hall is the student in
+
+ProgramIntent what program is he pursuing
+ProgramIntent what program is she pursuing
+ProgramIntent what program is the student pursuing
+ProgramIntent what program is his degree
+ProgramIntent what program is her degree
+ProgramIntent what program is the student’s degree
+
+MajorIntent what is his major
+MajorIntent what is her major
+MajorIntent what is the student’s major
+MajorIntent what is he majoring in
+MajorIntent what is she majoring in
+MajorIntent what is the student majoring in
+
+StudentLocationIntent where is he from
+StudentLocationIntent where is she from
+StudentLocationIntent where is the student from
+
+StudentYearIntent what year is he in
+StudentYearIntent what year is she in
+StudentYearIntent what year is the student in
+StudentYearIntent what class is he in
+StudentYearIntent what class is she in
+StudentYearIntent what class is the student in
+
+MailboxIntent what is his mailbox
+MailboxIntent what is her mailbox
+MailboxIntent what is this student’s mailbox
+
+EmailIntent what is his e-mail
+EmailIntent what is her e-mail
+EmailIntent what is this student’s e-mail
+
+RoommateIntent who are his roommates
+RoommateIntent who are her roommates
+RoommateIntent who are this student’s roommates
+
 DiningRequestIntent {resCollege} {mealTime}
 DiningRequestIntent {mealTime} {resCollege}
 DiningRequestIntent what is in {resCollege} for {mealTime}

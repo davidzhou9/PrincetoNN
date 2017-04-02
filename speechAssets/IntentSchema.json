@@ -4,6 +4,36 @@
       "intent": "GiveRandomPrincetonianIntent"
     },
     {
+      "intent": "ResCollegeIntent"
+    },
+    {
+      "intent": "RoomIntent"
+    },
+    {
+      "intent": "HallIntent"
+    },
+    {
+      "intent": "ProgramIntent"
+    },
+    {
+      "intent": "MajorIntent"
+    },
+    {
+      "intent": "StudentLocationIntent"
+    },
+    {
+      "intent": "StudentYearIntent"
+    },
+    {
+      "intent": "MailboxIntent"
+    },
+    {
+      "intent": "EmailIntent"
+    },
+    {
+      "intent": "RoommateIntent"
+    },
+    {
       "intent": "DiningRequestIntent",
       "slots":[
         {
