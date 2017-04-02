@@ -1,6 +1,6 @@
 // Import libraries
 var https = require('https');
-var cheerio = require('cheerio')
+var cheerio = require('cheerio');
 
 // Keep link to each dining hall
 var colleges = {
@@ -14,12 +14,12 @@ var colleges = {
     "mathey":'01&locationName=Rockefeller+%26+Mathey+Colleges',
     "roma":'01&locationName=Rockefeller+%26+Mathey+Colleges',
     "cjl":'05&locationName=Center+for+Jewish+Life'
-}
+};
 
 // Functions
 exports = {
-
-    // Get dining hall menus
+ 
+     //************** DINING INTENTS START *****************************
     getDiningFromAPI_GET: (resCollege, mealTime, callback) => {
 
         // Get the current date
@@ -68,6 +68,8 @@ exports = {
         req.end();
 
     }
+    //************** DINING INTENTS END ********************************
+
 
 };
 
