@@ -223,4 +223,3 @@ tigerbook.tigerbook_roommates = (student, callback) => {
 }
 
 module.exports = tigerbook;
-tigerbook.tigerbook_random(console.log);
