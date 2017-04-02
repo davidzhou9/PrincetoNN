@@ -58,7 +58,7 @@ var dining = {};
                     menu[i] = result(this).text();
                 });
                 menu = _.sample(menu, 5);
-                var speak = menu.join(', ');
+                var speak = menu.join(', ').split('&').join('and');
                 // Return answer
                 callback(speak);
 
