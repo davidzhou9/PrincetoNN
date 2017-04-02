@@ -113,42 +113,56 @@ var subjects = {
     "woodrow wilson school":'WWS'
 };
 
-var courseInstructor = {};
+var weekdays = {
+    "M":"Monday",
+    "T":"Tuesday",
+    "W":"Wednesday",
+    "Th":"Thursday",
+    "F":"Friday"
+};
+var courseLecture = {};
 //************** COURSES INTENTS START *****************************
 
 /**
  * Method to retrieve all public events on Princeton's feed
  * URL Link: https://etcweb.princeton.edu/webfeeds/events/
  */
-    courseInstructor.courseInstructor_whatCourseInstructor = (courseName, courseNum, callback) => {
+courseLecture.courseLecture_whatCourseLecture = (courseName, courseNum, callback) => {
 
-        // instantiates vars for API call
-        var options = {
-            host: 'etcweb.princeton.edu',
-            port: 443,
-            path: '/webfeeds/courseofferings/?subject=' + subjects[courseName] + '&catnum=' + courseNum;
-            method: 'GET'
-        };
+    // instantiates vars for API call
+    var options = {
+        host: 'etcweb.princeton.edu',
+        port: 443,
+        path: '/webfeeds/courseofferings/?subject=' + subjects[courseName] + '&catnum=' + courseNum;
+        method: 'GET'
+    };
 
-        // HTTPS request call
-        var req = https.request(options, res => {
-            res.setEncoding('utf8');
-            var returnData = "";
-            // concat the xml stream
-            res.on('data', chunk => {
-                returnData += chunk;
-            });
-
-            res.on('end',  () => {
-                // load data into cheerio
-                var result = cheerio.load(returnData);
-                // get professor full name
-                var answer = 'the professor for ' + courseName + ' ' + courseNum + ' is ' + result('instructor').child('full_name').text();
-                callback(answer);
-            });
+    // HTTPS request call
+    var req = https.request(options, res => {
+        res.setEncoding('utf8');
+        var returnData = "";
+        // concat the xml stream
+        res.on('data', chunk => {
+            returnData += chunk;
         });
 
-        req.end();
+        res.on('end',  () => {
+            // load data into cheerio
+            var result = cheerio.load(returnData);
+            // get professor full name
+            var daysArray = result('Lecture').siblings('schedule').children('days');
+            var answer = 'there are lecture for ' + courseName + ' ' + courseNum
+                + ' on ';
+
+            daysArray.forEach(function(i, elem) {
+                var currDay = weekdays[daysArray[i]];
+                answer += currDay + ', ';
+            });
+            callback(answer);
+        });
+    });
+
+    req.end();
 }
 //************** COURSES INTENTS END ********************************
 module.exports = courseInstructor;

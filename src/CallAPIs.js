@@ -3,7 +3,7 @@ var http = require('http');
 var cheerio = require('cheerio');
 var events = require('./dining.js');
 var courseInstructor = require('/courseInstructor.js');
-var course
+var courseLecture = require('/courseLecture.js');
 
 exports = {
 //module.exports = {
@@ -47,7 +47,7 @@ exports = {
     },
     courseInstructor_whatCourseInstructor:courseInstructor.courseInstructor_whatCourseInstructor,
     events_whatEvents:events.events_whatEvents,
-
+    courseLecture_whatCourseLecture:courseLecture.courseLecture_whatCourseLecture
 
 };
 
