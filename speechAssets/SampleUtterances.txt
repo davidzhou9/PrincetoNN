@@ -11,13 +11,30 @@ DiningRequestIntent {mealTime} {resCollege}
 DiningRequestIntent what is in {resCollege} for {mealTime}
 DiningRequestIntent what is for {mealTime} in {resCollege}
 
-USGEventsIntent what is going on today
-USGEventsIntent are there any events going on
-USGEventsIntent i am bored
-USGEventsIntent what is happening
-USGEventsIntent tell me about events today
-USGEventsIntent events
-USGEventsIntent activities
-USGEventsIntent usg events
+EventsIntent what is going on today
+EventsIntent are there any events going on
+EventsIntent i am bored
+EventsIntent what is happening
+EventsIntent tell me about events today
+EventsIntent events
+EventsIntent activities
+EventsIntent usg events
 
+CourseInstructorIntent which professor teaches {courseName} {courseNumber}
+CourseInstructorIntent who teaches {courseName} {courseNumber}
+CourseInstructorIntent who is the professor for {courseName} {courseNumber}
+CourseInstructorIntent who {courseName} {courseNumber}
+CourseInstructorIntent teaches {courseName} {courseNumber}
 
+CourseLectureIntent what time is {courseName} {courseNumber}
+CourseLectureIntent when is {courseName} {courseNumber}
+CourseLectureIntent what day is {courseName} {courseNumber}
+CourseLectureIntent at what time is {courseName} {courseNumber}
+CourseLectureIntent time {courseName} {courseNumber}
+CourseLectureIntent whem {courseName} {courseNumber}
+CourseLectureIntent day {courseName} {courseNumber}
+
+JokesIntent tell me a joke
+JokesIntent i'm sad
+JokesIntent say something funny
+JokesIntent jokes

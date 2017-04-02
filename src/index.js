@@ -42,7 +42,7 @@ var handlers = {
 
     },
     'LaunchRequest': function () {
-        var say = 'Welcome!';
+        var say = 'Welcome to Princeton!';
         this.emit(':ask', say, 'try again');
     },
 
@@ -75,13 +75,55 @@ var handlers = {
 
     },
 
+    'EventsIntent': function() {
+        var that = this;
+
+        CallAPIs.events_whatEvents(pop => {
+            var say = pop;
+
+            this.emit(':ask', say, 'try again');
+        });
+    },
+
+    'CourseInstructorIntent': function() {
+        var courseName = this.event.request.intent.slots.courseName.value;
+        var courseNum = this.event.request.intent.slots.courseNumber.value;
+        var say = '';
+
+        CallAPIs.courseInstructor_whatCourseInstructor(courseName, courseNum, pop => {
+            say = pop;
+            console.log("say = " + say);
+            this.emit(':ask', say, 'try again');
+        });
+    },
+
+    'CourseLectureIntent': function() {
+        var courseName = this.event.request.intent.slots.courseName.value;
+        var courseNum = this.event.request.intent.slots.courseNumber.value;
+        var say = '';
+
+        CallAPIs.courseLecture_whatCourseLecture(courseName, courseNum, pop => {
+            say = pop;
+            console.log("say = " + say);
+            this.emit(':ask', say, 'try again');
+        });
+    },
+
+    'JokesIntent': function() {
+        CallAPIs.jokes_whatJokes(pop => {
+           say = pop;
+           console.log("say = " + say);
+           this.emit(':ask', say, 'try again');
+        });
+    },
     'MyNameIsIntent': function() {
 
         var myName = this.event.request.intent.slots.myName.value;
         var say = "";
 
         if (myName == null) { // no slot
-            say = 'You can tell me your name, for example, you can say my name is Jad.';
+            say = 'You can tell me your name, for example, you can say my name is Alexa.';
+
         } else {
             // create and store session attributes
             this.attributes['myName'] = myName;
@@ -92,6 +134,7 @@ var handlers = {
     },
 
     'AMAZON.HelpIntent': function () {
+
         this.emit(':ask', 'Ask me anything about Princeton University', 'try again');
     },
 
