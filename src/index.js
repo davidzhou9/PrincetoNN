@@ -46,25 +46,17 @@ var handlers = {
     },
 
     'EventsIntent': function() {
-        var say = '';
-
-        // create and store session attributes
-        if (!this.attributes['myList']) {
-            this.attributes['myList'] = [];  // empty array
-        }
-
-        this.attributes['myList'].push(college);  // add array element
-
         var that = this;
 
         CallAPIs.getEventFromAPI_GET(pop => {
 
-            say = pop;
+        var say = pop;
 
         console.log("say = " + say);
 
         this.emit(':ask', say, 'try again');
-    }
+        });
+    },
     'MyNameIsIntent': function() {
 
         var myName = this.event.request.intent.slots.myName.value;
