@@ -14,6 +14,33 @@ exports.handler = function(event, context, callback){
 };
 
 var handlers = {
+    'PiazzaCourseListIntent':function() {
+
+        var that = this;
+
+        var semester = this.event.request.intent.slots.semester.value;
+        this.attributes['semester'] = semester || "first";
+        CallAPIs.piazza_whatCourses(semester,result => {
+            that.attributes['courses'] = result;
+            var say = ["your piazza courses: ", result.join(" and ")].join(" ");
+            this.emit(":ask",say, "try again");
+        });
+    },
+    'PiazzaCourseInstructorsIntent':function() {
+        if (!this.attributes['semester']||!this.attributes['courses'] || Object.keys(this.attributes['courses']).length == 0)
+        {
+            this.emit(":ask","please ask for your course list first", "try again");
+
+        }
+        var whichCourse = this.event.request.intent.slots.whichCourse.value;
+        CallAPIs.piazza_whichInstructors(this.attributes['semester'],
+            (whichCourse == "first" || whichCourse =="1st")? 0 : 1, result => {
+            this.emit(":ask",result, "try again");
+        })
+
+
+
+    },
     'LaunchRequest': function () {
         var say = 'Welcome!';
         this.emit(':ask', say, 'try again');
@@ -77,6 +104,9 @@ var handlers = {
         say = 'Goodbye, ' + myName;
 
         this.emit(':tell', say );
+    },
+    'Unhandled': function () {
+        this.emit(':ask', "THis is not handled", 'error in unhandled');
     }
 }
 // end of handlers
