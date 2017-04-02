@@ -3,7 +3,6 @@ var https = require('https');
 var cheerio = require('cheerio');
 
 //symbol table for mapping subject full name to three letter abbreviation
-
 var subjects = {
     "african american studies":'AAS',
     "african studies":'AFS',
@@ -113,12 +112,13 @@ var subjects = {
     "woodrow wilson school":'WWS'
 };
 
+// symbol table for num to letter conversion
 var weekdays = {
-    "M":"Monday",
-    "T":"Tuesday",
-    "W":"Wednesday",
-    "Th":"Thursday",
-    "F":"Friday"
+    0:"Monday",
+    1:"Tuesday",
+    2:"Wednesday",
+    3:"Thursday",
+    4:"Friday"
 };
 var courseLecture = {};
 //************** COURSES INTENTS START *****************************
@@ -154,28 +154,42 @@ courseLecture.courseLecture_whatCourseLecture = (courseName, courseNum, callback
             // console.log(classes.length);
 
             var lectureClass = [];
+
+            // add all classes/lectures to array
             for (i = 0; i < classes.length; i++) {
                 // console.log(result(classes[i]).children('type_name').text());
-                if (result(classes[i]).children('type_name').text() == 'Lecture') {
-                    lectureClass = result(classes[i]);
+                var temp = result(classes[i]).children('type_name').text();
+                if (temp == 'Lecture' || temp == 'Class') {
+                    lectureClass.push(result(classes[i]));
                 }
             }
-            // console.log(result(lectureClass).text());
+            // console.log(result(lectureClass).length);
 
-            var answer = 'there is lecture for ' + courseName + ' ' + courseNum
+            var answer = 'there is a lecture or class for ' + courseName + ' ' + courseNum
                 + ' on ';
 
+            // symbol table for character weekday to int mapping
+            var dayToNum = {'M':0, 'T':1, 'W':2, 'Th':3, 'F':4};
+            // set to keep track of days marked
+            var setOfDays = [false, false, false, false, false];
 
-            var daysArray = result(lectureClass).children('schedule').children('meetings')
-                .children('meeting').children('days').children('day');
-            // console.log(daysArray);
-            for (j = 0; j < daysArray.length; j++) {
-                // console.log(result(daysArray[j]).text());
-                if (j == daysArray.length - 1) {
-                    answer += 'and ' + weekdays[result(daysArray[j]).text()]
-                    break;
+            // loop thru all days and mark ones with classes/lecture
+            for (j = 0; j < lectureClass.length; j++) {
+                var daysArray = result(lectureClass[j]).children('schedule').children('meetings')
+                    .children('meeting').children('days').children('day');
+
+                // inner loop logic
+                for (k = 0; k < daysArray.length; k++) {
+                    setOfDays[dayToNum[result(daysArray[k]).text()]] = true;
+                    // console.log(result(daysArray[k]).text());
                 }
-                answer += weekdays[result(daysArray[j]).text()] + ', ';
+            }
+
+            // add all days to ouput
+            for (i = 0; i < setOfDays.length; i++) {
+                 if (setOfDays[i]) {
+                     answer += weekdays[i] + ', ';
+                 }
             }
 
             callback(answer);

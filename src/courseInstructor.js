@@ -146,6 +146,7 @@ var courseInstructor = {};
                 var profArray = result('instructors').children('instructor');
                 var answer;
 
+                // grammar logic
                 if (profArray.length == 1) {
                     answer = 'the professor for ' + courseName + ' ' + courseNum + ' is ';
                 }
@@ -153,6 +154,7 @@ var courseInstructor = {};
                     answer = 'the professors for ' + courseName + ' ' + courseNum + ' are '
                 }
 
+                // loop thru all professors to add them to ouput
                 for (i = 0; i < profArray.length; i++) {
                     if (i == profArray.length - 1) {
                         answer += 'and ';

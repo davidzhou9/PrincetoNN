@@ -47,15 +47,10 @@ events.events_whatEvents = (callback) => {
             if (eventsLength == 0) {
                 answer = 'there are no events today'
             }
-            else if (eventsLength > 3) {
-                answer = 'there are ' + eventsLength + ' events today!'
-            }
             else {
-                answer = 'the events today are '
-                arrayOfEvents.forEach(function(i, elem) {
-                    answer + arrayOfEvents[i] + ', '
-                });
+                answer = 'Here is an event today, ' + arrayOfEvents[Math.floor(Math.random() * arrayOfEvents.length)];
             }
+            callback(answer);
         });
     });
     req.end();

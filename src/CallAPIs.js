@@ -53,4 +53,5 @@ exports = {
 
 module.exports = exports;
 // exports.courseInstructor_whatCourseInstructor("computer science",333, pop => {console.log(pop)});
-exports.courseLecture_whatCourseLecture("mathematics", 202, pop => {console.log(pop)});
+// exports.courseLecture_whatCourseLecture("computer science", 217, pop => {console.log(pop)});
+exports.events_whatEvents(pop => {console.log(pop)});
