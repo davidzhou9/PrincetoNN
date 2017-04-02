@@ -31,7 +31,7 @@ var handlers = {
 
         var that = this;
 
-        CallAPIs.getDiningFromAPI_GET(college, mealTime, pop => {
+        CallAPIs.dining_whatFood(college, mealTime, pop => {
 
             say = [mealTime, 'at', college, 'is', pop].join(' ');
 
