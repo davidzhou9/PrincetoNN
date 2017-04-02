@@ -22,7 +22,7 @@ var handlers = {
         this.attributes['semester'] = semester || "first";
         CallAPIs.piazza_whatCourses(semester,result => {
             that.attributes['courses'] = result;
-            var say = ["your piazza courses: ", result.join(" and ")].join(" ");
+            var say = ["your piazza courses"+ (this.attributes['semester'] == "last"?" last term":""), ":", result.join(" and ")].join(" ");
             this.emit(":ask",say, "try again");
         });
     },
