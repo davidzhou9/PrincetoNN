@@ -121,7 +121,7 @@ var weekdays = {
     4:"Friday"
 };
 var courseLecture = {};
-//************** COURSES INTENTS START *****************************
+//************** LECTURES INTENTS START *****************************
 
 /**
  * Method to retrieve all public events on Princeton's feed
@@ -198,5 +198,5 @@ courseLecture.courseLecture_whatCourseLecture = (courseName, courseNum, callback
 
     req.end();
 }
-//************** COURSES INTENTS END ********************************
+//************** LECTURES INTENTS END ********************************
 module.exports = courseLecture;

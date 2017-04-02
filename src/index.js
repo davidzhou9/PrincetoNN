@@ -85,6 +85,10 @@ var handlers = {
         });
     },
 
+    'JokesIntent': function() {
+
+    },
+
     'MyNameIsIntent': function() {
 
         var myName = this.event.request.intent.slots.myName.value;

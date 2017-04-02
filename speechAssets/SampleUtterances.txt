@@ -28,3 +28,8 @@ CourseLectureIntent at what time is {courseName} {courseNumber}
 CourseLectureIntent time {courseName} {courseNumber}
 CourseLectureIntent whem {courseName} {courseNumber}
 CourseLectureIntent day {courseName} {courseNumber}
+
+JokesIntent tell me a joke
+JokesIntent i'm sad
+JokesIntent say something funny
+JokesIntent jokes

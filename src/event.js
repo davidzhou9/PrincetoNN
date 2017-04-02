@@ -4,7 +4,7 @@ var cheerio = require('cheerio');
 
 var events = {};
 
-//************** DINING INTENTS START *****************************
+//************** EVENT INTENTS START *****************************
 events.events_whatEvents = (callback) => {
 
     // instantiates vars for API call
@@ -56,5 +56,5 @@ events.events_whatEvents = (callback) => {
     req.end();
 }
 
-//************** DINING INTENTS END ********************************
+//************** EVENT INTENTS END ********************************
 module.exports = events;

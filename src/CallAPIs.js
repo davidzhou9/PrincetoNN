@@ -3,7 +3,8 @@ var http = require('http');
 var cheerio = require('cheerio');
 var courseInstructor = require('./courseInstructor.js');
 var courseLecture = require('./courseLecture.js');
-var events = require('./event.js')
+var events = require('./event.js');
+var jokes = require('./jokes.js');
 
 exports = {
 //module.exports = {
@@ -47,11 +48,13 @@ exports = {
     },
     courseInstructor_whatCourseInstructor:courseInstructor.courseInstructor_whatCourseInstructor,
     events_whatEvents:events.events_whatEvents,
-    courseLecture_whatCourseLecture:courseLecture.courseLecture_whatCourseLecture
+    courseLecture_whatCourseLecture:courseLecture.courseLecture_whatCourseLecture,
+    jokes_whatJokes:jokes.jokes_whatJokes
 
 };
 
 module.exports = exports;
- exports.courseInstructor_whatCourseInstructor("computer science",333, pop => {console.log(pop)});
- //exports.courseLecture_whatCourseLecture("computer science", 217, pop => {console.log(pop)});
-///exports.events_whatEvents(pop => {console.log(pop)});
+// exports.courseInstructor_whatCourseInstructor("computer science",333, pop => {console.log(pop)});
+// exports.courseLecture_whatCourseLecture("computer science", 217, pop => {console.log(pop)});
+// exports.events_whatEvents(pop => {console.log(pop)});
+exports.jokes_whatJokes(pop => (console.log(pop)));
