@@ -52,7 +52,7 @@ events.events_whatEvents = (callback) => {
             }
             else {
                 answer = 'the events today are '
-                arrayOfEvents.forEach(function(i, elem)) {
+                arrayOfEvents.forEach(function(i, elem) {
                     answer + arrayOfEvents[i] + ', '
                 });
             }

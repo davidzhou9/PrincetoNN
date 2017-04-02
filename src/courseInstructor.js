@@ -126,7 +126,7 @@ var courseInstructor = {};
         var options = {
             host: 'etcweb.princeton.edu',
             port: 443,
-            path: '/webfeeds/courseofferings/?subject=' + subjects[courseName] + '&catnum=' + courseNum;
+            path: '/webfeeds/courseofferings/?subject=' + subjects[courseName] + '&catnum=' + courseNum,
             method: 'GET'
         };
 
@@ -142,8 +142,27 @@ var courseInstructor = {};
             res.on('end',  () => {
                 // load data into cheerio
                 var result = cheerio.load(returnData);
-                // get professor full name
-                var answer = 'the professor for ' + courseName + ' ' + courseNum + ' is ' + result('instructor').child('full_name').text();
+                // get professor(s) full name(s)
+                var profArray = result('instructors').children('instructor');
+                var answer;
+
+                if (profArray.length == 1) {
+                    answer = 'the professor for ' + courseName + ' ' + courseNum + ' is ';
+                }
+                else {
+                    answer = 'the professors for ' + courseName + ' ' + courseNum + ' are '
+                }
+
+                for (i = 0; i < profArray.length; i++) {
+                    if (i == profArray.length - 1) {
+                        answer += 'and ';
+                        answer += result(profArray[i]).children('full_name').text();
+                        break;
+                    }
+                    answer += result(profArray[i]).children('full_name').text() + ', ';
+
+                }
+
                 callback(answer);
             });
         });

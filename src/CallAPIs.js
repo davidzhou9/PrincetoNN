@@ -1,9 +1,9 @@
 var https = require('https');
 var http = require('http');
 var cheerio = require('cheerio');
-var events = require('./dining.js');
-var courseInstructor = require('/courseInstructor.js');
-var courseLecture = require('/courseLecture.js');
+var courseInstructor = require('./courseInstructor.js');
+var courseLecture = require('./courseLecture.js');
+var events = require('./event.js')
 
 exports = {
 //module.exports = {
@@ -52,3 +52,5 @@ exports = {
 };
 
 module.exports = exports;
+// exports.courseInstructor_whatCourseInstructor("computer science",333, pop => {console.log(pop)});
+exports.courseLecture_whatCourseLecture("mathematics", 202, pop => {console.log(pop)});

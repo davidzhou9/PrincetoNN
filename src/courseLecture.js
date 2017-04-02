@@ -133,7 +133,7 @@ courseLecture.courseLecture_whatCourseLecture = (courseName, courseNum, callback
     var options = {
         host: 'etcweb.princeton.edu',
         port: 443,
-        path: '/webfeeds/courseofferings/?subject=' + subjects[courseName] + '&catnum=' + courseNum;
+        path: '/webfeeds/courseofferings/?subject=' + subjects[courseName] + '&catnum=' + courseNum,
         method: 'GET'
     };
 
@@ -150,14 +150,34 @@ courseLecture.courseLecture_whatCourseLecture = (courseName, courseNum, callback
             // load data into cheerio
             var result = cheerio.load(returnData);
             // get professor full name
-            var daysArray = result('Lecture').siblings('schedule').children('days');
-            var answer = 'there are lecture for ' + courseName + ' ' + courseNum
+            var classes = result('class');
+            // console.log(classes.length);
+
+            var lectureClass = [];
+            for (i = 0; i < classes.length; i++) {
+                // console.log(result(classes[i]).children('type_name').text());
+                if (result(classes[i]).children('type_name').text() == 'Lecture') {
+                    lectureClass = result(classes[i]);
+                }
+            }
+            // console.log(result(lectureClass).text());
+
+            var answer = 'there is lecture for ' + courseName + ' ' + courseNum
                 + ' on ';
 
-            daysArray.forEach(function(i, elem) {
-                var currDay = weekdays[daysArray[i]];
-                answer += currDay + ', ';
-            });
+
+            var daysArray = result(lectureClass).children('schedule').children('meetings')
+                .children('meeting').children('days').children('day');
+            // console.log(daysArray);
+            for (j = 0; j < daysArray.length; j++) {
+                // console.log(result(daysArray[j]).text());
+                if (j == daysArray.length - 1) {
+                    answer += 'and ' + weekdays[result(daysArray[j]).text()]
+                    break;
+                }
+                answer += weekdays[result(daysArray[j]).text()] + ', ';
+            }
+
             callback(answer);
         });
     });
@@ -165,4 +185,4 @@ courseLecture.courseLecture_whatCourseLecture = (courseName, courseNum, callback
     req.end();
 }
 //************** COURSES INTENTS END ********************************
-module.exports = courseInstructor;
+module.exports = courseLecture;
