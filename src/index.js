@@ -48,7 +48,7 @@ var handlers = {
     'EventsIntent': function() {
         var that = this;
 
-        CallAPIs.getEventFromAPI_GET(pop => {
+        CallAPIs.events_whatEvents(pop => {
             var say = pop;
 
             this.emit(':ask', say, 'try again');
@@ -60,14 +60,14 @@ var handlers = {
         var courseNum = this.event.request.intent.slots.courseNumber.value;
         var say = '';
 
-        CallAPIs.courseInstructor_whichCourseInstructor(courseName, courseNum, pop => {
+        CallAPIs.courseInstructor_whatCourseInstructor(courseName, courseNum, pop => {
 
             say = pop;
 
         console.log("say = " + say);
 
         this.emit(':ask', say, 'try again');
-        }
+        });
     },
 
     'CourseLectureIntent': function() {
@@ -75,14 +75,14 @@ var handlers = {
         var courseNum = this.event.request.intent.slots.courseNumber.value;
         var say = '';
 
-        CallAPIs.courseLecture_whichCourseLecture(courseName, courseNum, pop => {
+        CallAPIs.courseLecture_whatCourseLecture(courseName, courseNum, pop => {
 
             say = pop;
 
         console.log("say = " + say);
 
         this.emit(':ask', say, 'try again');
-        }
+        });
     },
 
     'MyNameIsIntent': function() {
