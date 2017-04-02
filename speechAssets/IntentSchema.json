@@ -47,7 +47,36 @@
       ]
     },
     {
-      "intent": "USGEventsIntent"
+      "intent": "EventsIntent"
+    },
+    {
+      "intent": "CourseInstructorIntent",
+      "slots": [
+        {
+          "name":"courseName",
+          "type":"COURSE_NAME"
+        } ,
+        {
+          "name":"courseNumber",
+          "type":"AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "CourseLectureIntent",
+      "slots": [
+        {
+          "name":"courseName",
+          "type":"COURSE_NAME"
+        } ,
+        {
+          "name":"courseNumber",
+          "type":"AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "JokesIntent"
     },
     {
       "intent": "MyNameIsIntent",
