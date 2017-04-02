@@ -14,6 +14,12 @@ exports.handler = function(event, context, callback){
 };
 
 var handlers = {
+    'PiazzaCourseListIntent':function() {
+        CallAPIs.piazza_whatCourses(result => {
+            var say = ["your piazza courses: ", result].join(" ");
+            this.emit(":ask",say, "try again");
+        });
+    },
     'LaunchRequest': function () {
         var say = 'Welcome!';
         this.emit(':ask', say, 'try again');
@@ -71,6 +77,9 @@ var handlers = {
         say = 'Goodbye, ' + myName;
 
         this.emit(':tell', say );
+    },
+    'Unhandled': function () {
+        this.emit(':ask', "THis is not handled", 'error in unhandled');
     }
 }
 // end of handlers
