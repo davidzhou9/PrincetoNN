@@ -4,7 +4,8 @@
   "description": "Alexa Cookbook samples",
   "main": "index.js",
   "dependencies": {
-    "alexa-sdk": "^1.0.6"
+    "alexa-sdk": "^1.0.6",
+    "piazza-api": "^1.0.1"
   },
   "devDependencies": {},
   "author": "Amazon.com",
