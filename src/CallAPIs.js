@@ -92,4 +92,3 @@ getEventFromAPI_GET: (callback) => {
 };
 
 module.exports = exports;
-exports.getEventFromAPI_GET(pop => {console.log(pop)});

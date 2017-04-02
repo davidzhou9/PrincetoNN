@@ -50,13 +50,14 @@ var handlers = {
 
         CallAPIs.getEventFromAPI_GET(pop => {
             var arrayOfEvents = pop;
+            var say;
             if (arrayOfEvents.length > 3 || arrayOfEvents.length == 0)
                 say = arrayOfEvents.length;
             else
                 say = arrayOfEvents.join(', ');
             console.log("say = " + say);
 
-        this.emit(':ask', say, 'try again');
+            this.emit(':ask', say, 'try again');
         });
     },
     'MyNameIsIntent': function() {
