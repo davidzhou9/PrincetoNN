@@ -19,6 +19,23 @@ var handlers = {
         this.emit(':ask', say, 'try again');
     },
 
+    'LocationRequestIntent': function() {
+        var city = this.event.request.intent.slots.city.value;
+        var country = this.event.request.intent.slots.country.value;
+
+        // create and store session attributes
+        if (!this.attributes['myList']) {
+            this.attributes['myList'] = [];  // empty array
+        }
+
+        var query = city;
+        if (!city || city == '') query = country;
+        
+        CallAPIs.tigerbook_whereFrom(query, pop => {
+            this.emit(':ask', pop, 'try again');
+        })
+    },
+
     'DiningRequestIntent': function() {
         var college = this.event.request.intent.slots.resCollege.value;
         var mealTime = this.event.request.intent.slots.mealTime.value;
@@ -29,19 +46,13 @@ var handlers = {
             this.attributes['myList'] = [];  // empty array
         }
 
-        var that = this;
-
         CallAPIs.dining_whatFood(college, mealTime, pop => {
-
             say = [mealTime, 'at', college, 'is', pop].join(' ');
-
-            console.log("say = " + say);
-
             this.emit(':ask', say, 'try again');
-
         });
 
     },
+
     'MyNameIsIntent': function() {
 
         var myName = this.event.request.intent.slots.myName.value;

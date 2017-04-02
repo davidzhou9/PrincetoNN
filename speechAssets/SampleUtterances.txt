@@ -1,6 +1,11 @@
 MyNameIsIntent my name is {myName}
 MyNameIsIntent call me {myName}
 
+LocationRequestIntent who is from {city}
+LocationRequestIntent is there anyone from {city} at Princeton
+LocationRequestIntent who is from {country}
+LocationRequestIntent is there anyone from {country} at Princeton
+
 DiningRequestIntent {resCollege} {mealTime}
 DiningRequestIntent {mealTime} {resCollege}
 DiningRequestIntent what is in {resCollege} for {mealTime}

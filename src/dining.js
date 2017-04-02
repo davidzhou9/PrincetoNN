@@ -15,6 +15,7 @@ var colleges = {
     "roma":'01&locationName=Rockefeller+%26+Mathey+Colleges',
     "cjl":'05&locationName=Center+for+Jewish+Life'
 };
+
 var dining = {};
      //************** DINING INTENTS START *****************************
     dining.dining_whatFood =  (resCollege, mealTime, callback) => {
@@ -66,4 +67,5 @@ var dining = {};
 
     }
     //************** DINING INTENTS END ********************************
+
 module.exports = dining;
