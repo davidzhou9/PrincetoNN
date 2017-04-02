@@ -6,14 +6,14 @@ DiningRequestIntent {mealTime} {resCollege}
 DiningRequestIntent what is in {resCollege} for {mealTime}
 DiningRequestIntent what is for {mealTime} in {resCollege}
 
-USGEventsIntent what is going on today
-USGEventsIntent are there any events going on
-USGEventsIntent i am bored
-USGEventsIntent what is happening
-USGEventsIntent tell me about events today
-USGEventsIntent events
-USGEventsIntent activities
-USGEventsIntent usg events
+EventsIntent what is going on today
+EventsIntent are there any events going on
+EventsIntent i am bored
+EventsIntent what is happening
+EventsIntent tell me about events today
+EventsIntent events
+EventsIntent activities
+EventsIntent usg events
 
 BlackBoardIntent what is my most recent announcement on blackboard
 BlackBoardIntent tell me my most recent announcement on blackboard

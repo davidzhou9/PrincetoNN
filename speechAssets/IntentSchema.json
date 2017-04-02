@@ -14,10 +14,7 @@
       ]
     },
     {
-      "intent": "USGEventsIntent"
-    },
-    {
-      "intent": "BlackBoardIntent"
+      "intent": "EventsIntent"
     },
     {
       "intent": "MyNameIsIntent",
