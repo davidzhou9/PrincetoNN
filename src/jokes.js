@@ -17,8 +17,8 @@ jokes.jokes_whatJokes = (callback) => {
 
         "A young man hired by a supermarket reported for his first day of work." +
         "The manager greeted him with a warm handshake and a smile, gave him a broom and said," +
-        "Your first job will be to sweep out the store." +
-        "But I'm a harvard graduate, the young man replied indignantly." +
+        "Your first job will be to sweep out the store. " +
+        "But I'm a harvard graduate, the young man replied indignantly. " +
         "Oh, I'm sorry. I didn't know that, said the manager. Here, give me the broom -- I'll show you how.",
 
         "How many Harvard students does it take to change a lightbulb? " +
